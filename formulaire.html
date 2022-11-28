@@ -23,38 +23,40 @@
         <img src="assets/src/img/promotion.jpg" alt="jarditou-promotion" title="promo-jarditou" id="promo">
         <form action="http://bienvu.net/script.php" method="get" id="formulaire">
             <fieldset>
-                <legend> Vos Coordonnées</legend>
-                <label id="nom">Votre nom* : </label><input type="text" name="nom" id="name" required> <br> 
-                <label id="prenom">Votre prénom* : </label><input type="text" name="prenom" id="firstname" required> <br>
+                <fieldset>
+                    <legend> Vos Coordonnées</legend>
+                    <label for="nom">Votre nom* : </label><input type="text" name="nom" id="nom" required> <span class="error" id="errornom"></span> <br> 
+                    <label for="prenom">Votre prénom* : </label><input type="text" name="prenom" id="prenom" required> <span class="error" id="errorprenom"></span> <br> <br> 
+                    <br>
+                    <label for="sexe">Sexe* : </label><input type="radio" name="sexe" id="sexef" value="feminin"> Féminin
+                    <input type="radio" name="sexe" id="sexem" value="masculin"> Masculin <span class="error" id="errorsexe"></span> <br>
+                    <br>
+                    <label for="date">Date de naissance* : </label><input type="date" name="date" id="date" required> <span class="error" id="errordate"></span><br>
+                    <label for="postal">Code postal* : </label><input type="text" name="postal" id="postal" required> <span class="error" id="errorposte"></span><br> 
+                    <label for="adresse">Adresse : </label><input type="text" name="adresse" id="adresse"> <br>
+                    <label for="ville">Ville : </label><input type="text" name="ville" id="ville"> <br>  
+                    <label for="mail">Email* : </label><input type="email" name="mail" id="mail" required placeholder="dave.loper@afpa.fr"> <span class="error" id="errormail"></span><br> 
+                </fieldset>
                 <br>
-                <label id="sexe">Sexe* : </label><input type="radio" name="sexef" value="feminin"> Féminin
-                <input type="radio" name="sexem" value="masculin"> Masculin <br>
+                <fieldset>
+                    <legend>Votre demande</legend>
+                    <label for="sujet">Sujet* :</label>
+                    <select id="sujet" required> 
+                        <option value="select">Veuillez choisir un sujet</option>
+                        <option value="commandes">Mes commandes</option>
+                        <option value="produit">Question sur un produit</option>
+                        <option value="reclamation">Réclamation</option>
+                        <option value="autres">Autres</option>
+                    </select>
+                    <span class="error" id="errorsujet"></span>
+                    <br>
+                    <label for="lquestion">Question à poser :</label><textarea name="question-area" rows="2" cols="20"></textarea>
+                </fieldset>
                 <br>
-                <label id="date">Date de naissance* : </label><input type="date" name="date" required><br>
-                <label id="postal">Code postal* : </label><input type="text" name="postal" required> <br> 
-                <label id="adresse">Adresse : </label><input type="text" name="adresse"> <br>
-                <label id="ville">Ville : </label><input type="text" name="ville"> <br>  
-                <label id="email">Email* : </label><input type="email" name="mail" required placeholder="dave.loper@afpa.fr"> <br> 
-            </fieldset>
-            <br>
-            <fieldset>
-                <legend>Votre demande</legend>
-                <label id="sujet">Sujet* :</label>
-                <select id="demande">
-                    <option value="select">Veuillez choisir un sujet</option>
-                    <option value="commandes">Mes commandes</option>
-                    <option value="produit">Question sur un produit</option>
-                    <option value="reclamation">Réclamation</option>
-                    <option value="autres">Autres</option>
-                </select>
+                <input type="checkbox" name="confirm" required>* J'accepte le traitement informatique de ce formulaire
                 <br>
-                <label id="lquestion">Question à poser :</label><textarea name="question-area" rows="2" cols="20"></textarea>
-            </fieldset>
-            <br>
-            <input type="checkbox" name="confirm" required>* J'accepte le traitement informatique de ce formulaire
-            <br>
-            <br>
-            <input type="submit" name="envoyer"> <input type="reset" name="annuler" value="Annuler">  
+                <br>
+                <input type="submit" name="envoyer" onclick="verif(event);"> <input type="reset" name="annuler" value="Annuler">  
         </form>
         <br>
         <footer>
